@@ -8,14 +8,14 @@ import java.security.ProtectionDomain;
 public class Transformer implements ClassFileTransformer {
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        if (classfileBuffer.length == 111991) {
+        if (classfileBuffer.length == 112079) {
             System.out.println("Detected class, patching...");
             System.out.println(className);
 
             byte[] newBytes = new byte[classfileBuffer.length];
             System.arraycopy(classfileBuffer, 0, newBytes, 0, newBytes.length);
 
-            int[] patch = {31173, 0, 31174, 3, 31201, 0, 31202, 3, 31288, 167, 31289, 90, 31290, 39};
+            int[] patch = {31264, 0, 31265, 3, 31292, 0, 31293, 3, 31379, 167, 31380, 90, 31381, 36};
             for(int i = 0; i < patch.length; i += 2) {
                 newBytes[patch[i]] = (byte) patch[i + 1];
             }

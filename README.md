@@ -8,5 +8,10 @@ Usage:
 java -noverify -javaagent:burp_loader.jar -jar burpsuite_pro_vX.X.XX.jar
 ```
 
+Build:
+```
+mvn package
+```
+
 原版地址:  
 http://scz.617.cn/misc/201910151519.txt
